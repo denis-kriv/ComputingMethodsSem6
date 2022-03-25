@@ -66,8 +66,8 @@ def run(generate_matrix_element, epsilon, alpha_range):
     for k in results:
         _, fst_error_norms, snd_error_norms = zip(*results[k])
         create_plot('results', f'result with n={k}.png', alpha_range,
-                    [(list(fst_error_norms), '||x - x_fst||'), (list(snd_error_norms), '||x - x_snd||')],
-                    'n = 5', 'alpha', 'error_norm', 'upper right')
+                    [(list(fst_error_norms), '||z - z1||'), (list(snd_error_norms), '||z - z2||')],
+                    f'n = {k}', 'alpha', 'error_norm', 'upper right')
 
 
 if __name__ == '__main__':
