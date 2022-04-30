@@ -33,3 +33,4 @@ def create_plot(path_to_file, file_name, x_vals: Iterable, each_graph_y_vals: Li
 
     plt.legend(loc=legend_location)
     fig.savefig(f'{path_to_file}/{file_name}', dpi=fig.dpi)
+    plt.close(fig)

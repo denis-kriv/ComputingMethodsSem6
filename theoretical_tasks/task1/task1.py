@@ -1,7 +1,6 @@
 from collections import namedtuple
-from functools import reduce
-
 import numpy as np
+import scipy.linalg
 from scipy.linalg import solve
 
 from common import create_table, create_plot
@@ -19,8 +18,7 @@ def check_if_oscillation_type(A: np.ndarray) -> bool:
 
 # using Newton`s method
 def matrix_sqrt(A: np.ndarray) -> np.ndarray:
-    n = A.shape[0]
-    return reduce(lambda m, _: (m + np.linalg.inv(m).dot(A)) / 2, range(n + 1), A)
+    return scipy.linalg.sqrtm(A)
 
 
 # (conjugate(A) * A + alpha * E) * x = conjugate(A) * b
@@ -71,5 +69,4 @@ def run(generate_matrix_element, epsilon, alpha_range):
 
 
 if __name__ == '__main__':
-    run(lambda dimension, row, column: 1 / (dimension - row) ** (2 * (column + 1)),
-        10**(-1), [10 ** (-i) for i in range(1, 4)])
+    run(lambda dimension, row, column: (6 * (row + 1)) ** (column + 1), 10**(-1), [i / 10 for i in range(1, 1000, 20)])
