@@ -64,9 +64,6 @@ def run():
     experiment(K, u, z, n_range, alphas, ps, rs, regularization_alphas_small_range, equation,
                'task2b_experiment_with_small_range')
 
-    print(min(regularization_alphas_big_range), max(regularization_alphas_big_range))
-    print(min(regularization_alphas_small_range), max(regularization_alphas_small_range))
-
 
 if __name__ == '__main__':
     run()
